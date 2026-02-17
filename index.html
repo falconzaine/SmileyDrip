@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smiley Drip</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Smiley Drip</h1>
+    <p class="tagline">Quality merch for youth — smile included</p>
+  </header>
+
+  <main class="container">
+    <section class="product">
+      <img src="assets/black-hoodie.svg" alt="Smiley Drip Black Hoodie" />
+      <h2>Smiley Drip Black Hoodie (Youth)</h2>
+      <p class="price">R350</p>
+      <button class="buy-button" data-price="350" data-item="Smiley Drip Black Hoodie">Buy with PayPal</button>
+    </section>
+
+    <section class="product">
+      <img src="assets/white-hoodie.svg" alt="Smiley Drip White Hoodie" />
+      <h2>Smiley Drip White Hoodie (Youth)</h2>
+      <p class="price">R350</p>
+      <button class="buy-button" data-price="350" data-item="Smiley Drip White Hoodie">Buy with PayPal</button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>&copy; 2026 Smiley Drip | All Rights Reserved</small>
+  </footer>
+
+  <script>
+    // Replace YOURACCOUNT with your paypal.me username
+    const PAYPAL_BASE = 'https://www.paypal.com/paypalme/YOURACCOUNT/';
+    document.querySelectorAll('.buy-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const price = btn.dataset.price || '0';
+        const url = PAYPAL_BASE + encodeURIComponent(price);
+        window.open(url, '_blank');
+      });
+    });
+  </script>
+</body>
+</html>
